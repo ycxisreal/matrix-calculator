@@ -45,9 +45,7 @@ mat operator *(mat b,int a)//数乘逆序
 }
 mat operator *(mat a,mat b)
 {
-	mat c;
-	c.r = a.r;
-	c.c = b.c;
+	mat c(a.r,b.c);
 	double temp=0;
 	for (int i = 0; i < a.r; i++)
 	{
@@ -63,9 +61,7 @@ mat operator *(mat a,mat b)
 }
 mat operator +(mat a,mat b)
 {
-	mat c;
-	c.r = a.r;
-	c.c = a.c;
+	mat c(a.r,a.c);
 	for (int i = 0; i < c.r; i++)
 		for (int j = 0; j < c.c; j++)
 			c.matrix[i][j] = a.matrix[i][j] + b.matrix[i][j];
@@ -76,14 +72,43 @@ mat operator -(mat a,mat b)
 	mat c = a + -1 * b;
 	return c;
 }
-//mat mat::mat_inverse()//求逆矩阵
-//{
-//
-//}
-//mat mat::mat_comp()//求伴随矩阵
-//{
-//
-//}
+mat mat::mat_inverse()//求逆矩阵
+{
+	mat a(r, c);
+
+	return a;
+}
+mat mat::mat_comp()//求伴随矩阵
+{
+	mat a(r,c);
+	for (int i = 0; i < r; i++)
+	{
+		for (int j = 0; j < c; j++)
+		{
+			mat b(r - 1, c - 1);//代数余子式矩阵b
+			//构造代数余子式
+			int column = 0;
+			int row = 0;
+			for (int k = 0; k < r; k++)
+			{
+				if (k == i)
+					continue;
+				for (int l = 0; l < c; l++)
+				{
+					if (l == j)
+						continue;
+					b.matrix[row][column] = matrix[k][l];
+					column++;
+				}
+				column = 0;
+				row++;
+			}
+			//求代数余子式值
+			a.matrix[i][j] = pow(-1,i+j)*b.evaluation();
+		}
+	}
+	return a;
+}
 double mat::evaluation(int ran)//求行列式的值,子函数
 {
 	//递归求解行列式的值

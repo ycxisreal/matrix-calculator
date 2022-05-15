@@ -10,6 +10,8 @@ public:
 	double matrix[20][20]{};
 	mat() :
 		r(0),c(0) {}
+	mat(int a,int b):
+		r(a),c(b) {}
 	//¸³Öµ²¿·Ö
 	void setr(int a) { r = a; }
 	void setc(int a) { c = a; }
