@@ -21,8 +21,8 @@ public:
 	void showmat();
 	//运算部分
 	friend mat operator *(mat a,mat b);//乘法
-	friend mat operator *(int a, mat b);//左数乘
-	friend mat operator *(mat b, int a);//右数乘
+	friend mat operator *(double a, mat b);//左数乘
+	friend mat operator *(mat b, double a);//右数乘
 	friend mat operator +(mat a,mat b);//加法
 	friend mat operator -(mat a,mat b);//减法
 	mat mat_inverse();//求逆矩阵，A逆*伴随矩阵

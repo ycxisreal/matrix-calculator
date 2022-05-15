@@ -10,15 +10,6 @@ int main()
 	cout << fixed << setprecision(2) << 2143423.4232 << endl;*/
 
 	cout << "=============¾ØÕó¼ÆËãÆ÷=============" << endl;
-	int r, c;
-	cin >> r;
-	cin >> c;
-	mat a(r, c);
-	cout << "ÊäÈë¾ØÕó£º" << endl;
-	a.setmat();
-	cout << "°éËæ£º" << endl;
-	mat b = a.mat_comp();
-	b.showmat();
 
 	return 0;
 }

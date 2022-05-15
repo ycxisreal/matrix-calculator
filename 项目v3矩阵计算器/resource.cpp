@@ -29,14 +29,14 @@ void mat::operator =(mat b)
 		for (int j = 0; j < b.c; j++)
 			this->matrix[i][j] = b.matrix[i][j];
 }
-mat operator *(int a, mat b)//数乘
+mat operator *(double a, mat b)//数乘
 {
 	for(int i=0;i<b.r;i++)
 		for (int j = 0; j < b.c; j++)
 			b.matrix[i][j] = a * b.matrix[i][j];
 	return b;
 }
-mat operator *(mat b,int a)//数乘逆序
+mat operator *(mat b,double a)//数乘逆序
 {
 	for (int i = 0; i < b.r; i++)
 		for (int j = 0; j < b.c; j++)
@@ -74,8 +74,8 @@ mat operator -(mat a,mat b)
 }
 mat mat::mat_inverse()//求逆矩阵
 {
-	mat a(r, c);
-
+	mat a = mat_comp();
+	a = a * (1.0 / evaluation());
 	return a;
 }
 mat mat::mat_comp()//求伴随矩阵
@@ -107,6 +107,11 @@ mat mat::mat_comp()//求伴随矩阵
 			a.matrix[i][j] = pow(-1,i+j)*b.evaluation();
 		}
 	}
+	//转置a以获得伴随矩阵
+	mat d = a;
+	for (int i = 0; i < r; i++)
+		for (int j = 0; j < c; j++)
+			a.matrix[i][j] = d.matrix[j][i];
 	return a;
 }
 double mat::evaluation(int ran)//求行列式的值,子函数
@@ -138,10 +143,6 @@ double mat::evaluation(int ran)//求行列式的值,子函数
 			for (int j = 0; j < rank; j++)
 			{
 				matrix[i][j] -= matrix[rank - 1][j] * matrix[i][rank - 1] / matrix[rank - 1][rank - 1];
-				/*matrix[i][j] = matrix[i][j] * matrix[rank - 1][rank - 1] / matrix[i][rank - 1] ;
-				matrix[i][j] -= matrix[rank - 1][j];*/
-				/*if(a!= matrix[rank - 1][rank - 1])5
-					matrix[i][j] *= a;*/
 			}
 		}
 		return pow(-1, rank * rank) * matrix[rank-1][rank-1] * evaluation(rank - 1);
@@ -160,3 +161,49 @@ double mat::evaluation()//求行列式的值，主函数
 			matrix[i][j] = M[i][j];
 	return A;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+21 43 12 56 23 87 65 78 11 10 21 43 12 56 23 87 65 78 11 10
+78 78 45 12 36 98 55 41 52 55 78 99 56 89 14 52 63 45 87 22
+78 99 56 89 14 52 63 45 87 22 12 36 98 55 44 44 58 11 55 45
+57 58 77 62 54 25 83 47 52 22 57 58 77 62 54 25 83 47 52 22
+23 87 65 78 98 55 41 23 52 98 12 36 98 55 44 44 58 11 55 45
+78 56 89 14 52 78 56 98 89 56 52 63 45 87 22 23 87 65 78 45
+12 36 98 55 44 44 58 11 55 45 36 98 55 41 87 65 78 98 55 54
+62 54 25 83 58 62 54 25 54 88 25 83 47 52 22 57 58 77 55 55
+52 63 45 87 22 23 87 65 78 45 62 54 25 83 58 62 54 25 54 88
+36 98 55 41 87 65 78 98 55 54 36 98 55 41 87 65 78 98 55 54
+21 43 12 56 23 87 65 78 11 10 21 43 12 56 23 87 65 78 11 10
+78 78 45 12 36 98 55 41 52 55 78 99 56 89 14 52 63 45 87 22
+78 99 56 89 14 52 63 45 87 22 12 36 98 55 44 44 58 11 55 45
+57 58 77 62 54 25 83 47 52 22 57 58 77 62 54 25 83 47 52 22
+23 87 65 78 98 55 41 23 52 98 12 36 98 55 44 44 58 11 55 45
+78 56 89 14 52 78 56 98 89 56 52 63 45 87 22 23 87 65 78 45
+12 36 98 55 44 44 58 11 55 45 36 98 55 41 87 65 78 98 55 54
+62 54 25 83 58 62 54 25 54 88 25 83 47 52 22 57 58 77 55 55
+52 63 45 87 22 23 87 65 78 45 62 54 25 83 58 62 54 25 54 88
+36 98 55 41 87 65 78 98 55 54 36 98 55 41 87 65 78 98 55 54
+*/
