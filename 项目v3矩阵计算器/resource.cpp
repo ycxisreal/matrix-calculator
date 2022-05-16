@@ -136,7 +136,6 @@ double mat::evaluation(int ran)//求行列式的值,子函数
 	else if (rank > 3)
 	{
 		//使最后一列中除最后一行外，全部消为0。
-		//要新建一个矩阵保存信息，然后再传给递归函数使用！
 		for (int i = 0; i < rank - 1; i++)
 		{
 			double a = matrix[i][rank - 1];
@@ -161,6 +160,7 @@ double mat::evaluation()//求行列式的值，主函数
 			matrix[i][j] = M[i][j];
 	return A;
 }
+
 
 
 

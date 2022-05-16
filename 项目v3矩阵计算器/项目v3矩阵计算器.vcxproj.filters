@@ -18,18 +18,18 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="matadd.cpp">
+    <ClCompile Include="resource.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="resource.cpp">
+    <ClCompile Include="cacul.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="matadd.h">
+    <ClInclude Include="resource.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="cacul.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

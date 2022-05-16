@@ -139,12 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cacul.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="matadd.cpp" />
     <ClCompile Include="resource.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="matadd.h" />
+    <ClInclude Include="cacul.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

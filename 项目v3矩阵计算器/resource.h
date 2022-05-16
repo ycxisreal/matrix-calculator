@@ -25,7 +25,7 @@ public:
 	friend mat operator *(mat b, double a);//右数乘
 	friend mat operator +(mat a,mat b);//加法
 	friend mat operator -(mat a,mat b);//减法
-	mat mat_inverse();//求逆矩阵，A逆*伴随矩阵
+	mat mat_inverse();//求逆矩阵
 	mat mat_comp();//求伴随矩阵
 	double evaluation();//求行列式的值
 	double evaluation(int ran);//求行列式的值,递归用子函数
