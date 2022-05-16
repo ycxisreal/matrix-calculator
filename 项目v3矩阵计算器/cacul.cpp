@@ -36,14 +36,33 @@ void Aoperation()
 			AB(a);
 			break;
 		case '2':
+			if (a.getc() != a.getr())
+			{
+				cout << "【此矩阵不是方阵，无法求其行列式！】" << endl;
+				break;
+			}
 			cout << "【矩阵A的行列式的值为【 " << a.evaluation() << " 】" << endl;
 			break;
 		case '3':
+			if (a.getc() != a.getr())
+			{
+				cout << "【此矩阵不是方阵，无法求其逆矩阵！】" << endl;
+				break;
+			}
+			if (a.evaluation() == 0)
+			{
+				cout << "【该矩阵行列式为 0，无法求其逆矩阵！】" << endl;
+			}
 			cout << "【矩阵A的逆矩阵为：】" << endl;
 			b = a.mat_inverse();
 			b.showmat();
 			break;
 		case '4':
+			if (a.getc() != a.getr())
+			{
+				cout << "【此矩阵不是方阵，无法求其伴随矩阵！】" << endl;
+				break;
+			}
 			cout << "【矩阵A的伴随矩阵为：】" << endl;
 			b = a.mat_comp();
 			b.showmat();
@@ -133,6 +152,11 @@ void AB(mat a)
 			cout << "B =" << endl;
 			if (op == "*")
 			{
+				if (a.getc() != b.getr())
+				{
+					cout << "【两矩阵行与列不对应！无法执行乘法操作。】" << endl;
+					return;
+				}
 				d = a * b;
 				d.showmat();
 			}
