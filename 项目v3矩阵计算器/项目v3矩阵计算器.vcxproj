@@ -146,6 +146,13 @@
   <ItemGroup>
     <ClInclude Include="cacul.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="resource1.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="项目v3矩阵计算器.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="mc.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
