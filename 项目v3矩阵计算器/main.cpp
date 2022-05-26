@@ -7,6 +7,7 @@ using namespace std;
 //设想时间2022.5.9晚
 int main()
 {
+	system("color F0");
 	system("mode con cols=50 lines=25");
 	/*cout <<left<< setw(12) << "35435" << setw(12) << "35435" << endl;
 	cout << fixed << setprecision(2) << 2143423.4232 << endl;*/
